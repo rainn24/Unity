@@ -8,20 +8,21 @@ public class BouncyPill : MonoBehaviour {
     // variable to store height
     float h;
     Vector3 OrigPos;
-
+    public GameObject EnviroPlane;
     // Variable to store speed
-    float vel;
+    //float vel;
     // Use this for initialization
     void Start () {
-        transform.position = new Vector3(0,1,0);
+        transform.position = EnviroPlane.transform.position+ Vector3.up*2;
         OrigPos = gameObject.transform.position;
-        vel = 0;
-
+        //vel = 0;
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = OrigPos + new Vector3(0, Mathf.Sin(Time.time), 0);
-
+        // Standard position based on shifting coordinate
+        //transform.position = OrigPos + new Vector3(0, Mathf.Sin(Time.time), 0);
+       gameObject.transform.Translate(new Vector3(0f, Mathf.Sin(Time.time), 0f));
 	}
 }
